@@ -1,0 +1,20 @@
+set -e
+
+archive="pinpoint-agent/pinpoint-agent-2.0.3.tar.gz"
+
+#UNPRESS ARCHIVE
+if [[ -f $archive ]] ; then
+  tar xzf $archive
+else
+  echo "Archive not found"
+  exit 1
+fi
+
+#COPY ARCHIVE
+if [[ -d pinpoint-agent-2.0.3/profiles ]]; then
+  cp -a pinpoint-agent-2.0.3/* ${BOSH_INSTALL_TARGET}
+  chmod 755 ${BOSH_INSTALL_TARGET}/*
+else
+  echo "HADOOP is not properly packaged"
+  exit 1
+fi

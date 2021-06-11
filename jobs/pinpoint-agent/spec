@@ -1,0 +1,26 @@
+---
+name: pinpoint-agent
+
+templates: 
+  pinpoint.config.erb: config/pinpoint.config
+  pinpoint-env.config.erb: config/pinpoint-env.config
+  log4j.xml.erb: config/log4j.xml
+  pre-start: bin/pre-start
+
+packages: [pinpoint-agent]
+
+properties:
+  module:
+    description: 'pinpoint agent transport option'
+    default: 'THRIFT'
+  collector_ip:
+    description: 'pinpoint agent collector ip'
+  span_port:
+    description: 'pinpoint span port'
+    default: '9996'
+  stat_port:
+    description: 'pinpoint stat port'
+    default: '9995'
+  tcp_port:
+    description: 'pinpoint tcp port'
+    default: '9994'

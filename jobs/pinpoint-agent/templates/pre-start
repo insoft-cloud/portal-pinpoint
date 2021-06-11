@@ -1,0 +1,8 @@
+#!/bin/bash
+
+set -e -x
+
+
+cp /var/vcap/jobs/pinpoint-agent/config/pinpoint.config /var/vcap/packages/pinpoint-agent/pinpoint.config
+cp /var/vcap/jobs/pinpoint-agent/config/pinpoint-env.config /var/vcap/packages/pinpoint-agent/profiles/release/pinpoint-env.config
+cp /var/vcap/jobs/pinpoint-agent/config/log4j.xml /var/vcap/packages/pinpoint-agent/profiles/release/log4j.xml
